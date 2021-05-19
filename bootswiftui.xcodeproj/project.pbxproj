@@ -23,6 +23,14 @@
 		46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6826553E810026C280 /* AppConfig.swift */; };
 		46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6D265541180026C280 /* ThemeSwitcher.swift */; };
 		46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6D265541180026C280 /* ThemeSwitcher.swift */; };
+		46C8FC74265545DD0026C280 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC73265545DD0026C280 /* Alert.swift */; };
+		46C8FC75265545DD0026C280 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC73265545DD0026C280 /* Alert.swift */; };
+		46C8FC7826554A450026C280 /* AlertMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7726554A450026C280 /* AlertMock.swift */; };
+		46C8FC7926554A450026C280 /* AlertMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7726554A450026C280 /* AlertMock.swift */; };
+		46C8FC7B26554BC60026C280 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7A26554BC60026C280 /* Component.swift */; };
+		46C8FC7C26554BC60026C280 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7A26554BC60026C280 /* Component.swift */; };
+		46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7E26555C630026C280 /* BoxMode.swift */; };
+		46C8FC8026555C630026C280 /* BoxMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC7E26555C630026C280 /* BoxMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,10 @@
 		46C8FC64265538B50026C280 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		46C8FC6826553E810026C280 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		46C8FC6D265541180026C280 /* ThemeSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitcher.swift; sourceTree = "<group>"; };
+		46C8FC73265545DD0026C280 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		46C8FC7726554A450026C280 /* AlertMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMock.swift; sourceTree = "<group>"; };
+		46C8FC7A26554BC60026C280 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		46C8FC7E26555C630026C280 /* BoxMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,8 @@
 		46540C722651751D00DC4AA2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				46C8FC7D26555C520026C280 /* Modifiers */,
+				46C8FC7626554A2F0026C280 /* Core */,
 				46C8FC6B265540E20026C280 /* Components */,
 				46540CB0265175EE00DC4AA2 /* Theme */,
 				46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */,
@@ -178,17 +192,27 @@
 		46C8FC6B265540E20026C280 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				46C8FC6C265540EA0026C280 /* ThemeSwitcher */,
+				46C8FC6D265541180026C280 /* ThemeSwitcher.swift */,
+				46C8FC73265545DD0026C280 /* Alert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		46C8FC6C265540EA0026C280 /* ThemeSwitcher */ = {
+		46C8FC7626554A2F0026C280 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				46C8FC6D265541180026C280 /* ThemeSwitcher.swift */,
+				46C8FC7726554A450026C280 /* AlertMock.swift */,
+				46C8FC7A26554BC60026C280 /* Component.swift */,
 			);
-			path = ThemeSwitcher;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		46C8FC7D26555C520026C280 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				46C8FC7E26555C630026C280 /* BoxMode.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,11 +373,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
+				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
 				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */,
 				46C8FC65265538B50026C280 /* Theme.swift in Sources */,
+				46C8FC7826554A450026C280 /* AlertMock.swift in Sources */,
 				46540C9C2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */,
 				46540CB2265175FF00DC4AA2 /* Color.swift in Sources */,
+				46C8FC74265545DD0026C280 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,11 +390,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
+				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
 				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				46C8FC8026555C630026C280 /* BoxMode.swift in Sources */,
 				46C8FC66265538B50026C280 /* Theme.swift in Sources */,
+				46C8FC7926554A450026C280 /* AlertMock.swift in Sources */,
 				46540C9D2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */,
 				46540CB3265175FF00DC4AA2 /* Color.swift in Sources */,
+				46C8FC75265545DD0026C280 /* Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
