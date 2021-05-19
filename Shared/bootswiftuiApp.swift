@@ -11,7 +11,7 @@ import SwiftUI
 struct bootswiftuiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(theme: .primary)
         }
     }
 }
