@@ -9,17 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var theme: Theme
+    @EnvironmentObject var appConfig: AppConfig
     
     var body: some View {
-        Text("Hello, world!")
-            .foregroundColor(theme.config.text)
-            .padding()
+        VStack {
+            Text("Hello, world!")
+                .foregroundColor(appConfig.theme.config.text)
+                .padding()
+            ThemeSwitcher(selectedTheme: $appConfig.theme)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(theme: .danger)
+        ContentView()
+            .environmentObject(AppConfig())
     }
 }

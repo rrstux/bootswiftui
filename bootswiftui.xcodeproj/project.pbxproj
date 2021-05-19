@@ -17,8 +17,12 @@
 		46540CA12651751E00DC4AA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46540C752651751E00DC4AA2 /* Assets.xcassets */; };
 		46540CB2265175FF00DC4AA2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540CB1265175FF00DC4AA2 /* Color.swift */; };
 		46540CB3265175FF00DC4AA2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540CB1265175FF00DC4AA2 /* Color.swift */; };
-		46C8FC65265538B50026C280 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* ThemeProtocol.swift */; };
-		46C8FC66265538B50026C280 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* ThemeProtocol.swift */; };
+		46C8FC65265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
+		46C8FC66265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
+		46C8FC6926553E810026C280 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6826553E810026C280 /* AppConfig.swift */; };
+		46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6826553E810026C280 /* AppConfig.swift */; };
+		46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6D265541180026C280 /* ThemeSwitcher.swift */; };
+		46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6D265541180026C280 /* ThemeSwitcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +58,9 @@
 		46540C992651751E00DC4AA2 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		46540C9B2651751E00DC4AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46540CB1265175FF00DC4AA2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		46C8FC64265538B50026C280 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		46C8FC64265538B50026C280 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		46C8FC6826553E810026C280 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		46C8FC6D265541180026C280 /* ThemeSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +110,12 @@
 		46540C722651751D00DC4AA2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				46C8FC6B265540E20026C280 /* Components */,
 				46540CB0265175EE00DC4AA2 /* Theme */,
 				46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */,
 				46540C742651751D00DC4AA2 /* ContentView.swift */,
 				46540C752651751E00DC4AA2 /* Assets.xcassets */,
+				46C8FC6826553E810026C280 /* AppConfig.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -162,9 +170,25 @@
 			isa = PBXGroup;
 			children = (
 				46540CB1265175FF00DC4AA2 /* Color.swift */,
-				46C8FC64265538B50026C280 /* ThemeProtocol.swift */,
+				46C8FC64265538B50026C280 /* Theme.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		46C8FC6B265540E20026C280 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				46C8FC6C265540EA0026C280 /* ThemeSwitcher */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		46C8FC6C265540EA0026C280 /* ThemeSwitcher */ = {
+			isa = PBXGroup;
+			children = (
+				46C8FC6D265541180026C280 /* ThemeSwitcher.swift */,
+			);
+			path = ThemeSwitcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
-				46C8FC65265538B50026C280 /* ThemeProtocol.swift in Sources */,
+				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
+				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				46C8FC65265538B50026C280 /* Theme.swift in Sources */,
 				46540C9C2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */,
 				46540CB2265175FF00DC4AA2 /* Color.swift in Sources */,
 			);
@@ -336,7 +362,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
-				46C8FC66265538B50026C280 /* ThemeProtocol.swift in Sources */,
+				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
+				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				46C8FC66265538B50026C280 /* Theme.swift in Sources */,
 				46540C9D2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */,
 				46540CB3265175FF00DC4AA2 /* Color.swift in Sources */,
 			);

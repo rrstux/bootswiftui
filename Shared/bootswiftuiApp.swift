@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct bootswiftuiApp: App {
+    
+    @StateObject var appConfig: AppConfig = AppConfig()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(theme: .primary)
+            ContentView()
+                .environmentObject(appConfig)
         }
     }
 }
