@@ -10,26 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var appConfig: AppConfig
-    @State var alertHidden = false
     
     var body: some View {
-        VStack {
-            Button(action: {
-                alertHidden.toggle()
-            }, label: {
-                Text("Toggle Hidden")
-            })
-            Alert(alertTitle: AlertMock.RomanianDisaster.title,
-                  alertDescription: AlertMock.RomanianDisaster.description,
-                  componentTheme: appConfig.theme,
-                  componentSize: .compact,
-                  isDismissable: true,
-                  isShowingDivider: true,
-                  isHidden: $alertHidden)
-                .padding()
-            Spacer()
-            ThemeSwitcher(selectedTheme: $appConfig.theme)
-//                .frame(maxHeight: 300)
+        NavigationView {
+            List {
+                NavigationLink("Alerts", destination: AlertPresentationScreen())
+            }
+            .navigationTitle("bootswiftui")
         }
     }
 }

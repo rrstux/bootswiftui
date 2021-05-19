@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460EF92E2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF92D2655A20200B5FEEF /* AlertPresentationScreen.swift */; };
+		460EF92F2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF92D2655A20200B5FEEF /* AlertPresentationScreen.swift */; };
 		46540C8F2651751E00DC4AA2 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C8E2651751E00DC4AA2 /* Tests_iOS.swift */; };
 		46540C9A2651751E00DC4AA2 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C992651751E00DC4AA2 /* Tests_macOS.swift */; };
 		46540C9C2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */; };
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460EF92D2655A20200B5FEEF /* AlertPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentationScreen.swift; sourceTree = "<group>"; };
 		46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bootswiftuiApp.swift; sourceTree = "<group>"; };
 		46540C742651751D00DC4AA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46540C752651751E00DC4AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460EF92C2655A1F100B5FEEF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				460EF92D2655A20200B5FEEF /* AlertPresentationScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		46540C6D2651751C00DC4AA2 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +133,7 @@
 		46540C722651751D00DC4AA2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				460EF92C2655A1F100B5FEEF /* Screens */,
 				46C8FC7D26555C520026C280 /* Modifiers */,
 				46C8FC7626554A2F0026C280 /* Core */,
 				46C8FC6B265540E20026C280 /* Components */,
@@ -376,6 +388,7 @@
 				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
 				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				460EF92E2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */,
 				46C8FC65265538B50026C280 /* Theme.swift in Sources */,
 				46C8FC7826554A450026C280 /* AlertMock.swift in Sources */,
@@ -393,6 +406,7 @@
 				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
 				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
+				460EF92F2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC8026555C630026C280 /* BoxMode.swift in Sources */,
 				46C8FC66265538B50026C280 /* Theme.swift in Sources */,
 				46C8FC7926554A450026C280 /* AlertMock.swift in Sources */,
