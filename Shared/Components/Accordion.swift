@@ -29,25 +29,30 @@ struct Accordion<Header: View, Content: View>: View, Component {
     @Binding var isHidden: Bool
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Rectangle()
-                .boxMode(theme: componentTheme)
-                .layoutPriority(-1)
-            VStack(spacing: 0) {
-                ForEach(accordionSectionData.indices) { i in
-                    AccordionSection(componentTheme: componentTheme,
-                                     header: accordionSectionData[i].header,
-                                     content: accordionSectionData[i].content,
-                                     listPosition: ListPosition.position(in: accordionSectionData.indices, of: i),
-                                     isCollapsed: $accordionSectionData[i].isCollapsed)
+        if !isRendered {
+            EmptyView()
+        } else {
+            ZStack(alignment: .topLeading) {
+                Rectangle()
+                    .boxMode(theme: componentTheme)
+                    .layoutPriority(-1)
+                VStack(spacing: 0) {
+                    ForEach(accordionSectionData.indices) { i in
+                        AccordionSection(componentTheme: componentTheme,
+                                         header: accordionSectionData[i].header,
+                                         content: accordionSectionData[i].content,
+                                         listPosition: ListPosition.position(in: accordionSectionData.indices, of: i),
+                                         isCollapsed: $accordionSectionData[i].isCollapsed)
+                    }
                 }
             }
+            .opacity(isHidden ? 0 : 1)
         }
     }
 }
 
 fileprivate struct AccordionSection<Header: View, Content: View>: View {
-
+    
     var componentTheme: Theme = .primary
     
     let header: () -> Header
@@ -78,6 +83,7 @@ fileprivate struct AccordionSection<Header: View, Content: View>: View {
             headerDividers()
             if isCollapsed {
                 content()
+                    .foregroundColor(componentTheme.config.text)
                     .padding()
                 if (listPosition != .last && listPosition != .uniqueElement) {
                     Divider()

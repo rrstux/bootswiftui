@@ -12,8 +12,8 @@ struct AlertPresentationScreen: View {
     @EnvironmentObject var appConfig: AppConfig
     
     @State var isDismissable = true
-    @State var alertRendered = true
-    @State var alertHidden = false
+    @State var isRendered = true
+    @State var isHidden = false
     
     @State var titleShown = true
     
@@ -27,19 +27,19 @@ struct AlertPresentationScreen: View {
                   alertDescription: "Don't forget to reset your password in 24 hours. Otherwise, things can get bad.",
                   componentTheme: appConfig.theme,
                   isDismissable: isDismissable,
-                  isRendered: $alertRendered,
-                  isHidden: $alertHidden)
+                  isRendered: $isRendered,
+                  isHidden: $isHidden)
                 .frame(height: 200)
                 .padding()
             Form {
                 Section(header: Text("Rendering")) {
-                    Toggle(isOn: $alertRendered) {
+                    Toggle(isOn: $isRendered) {
                         Label(
                             title: { Text("Rendered") },
                             icon: { Image(systemName: "eye") }
                         )
                     }
-                    Toggle(isOn: $alertHidden) {
+                    Toggle(isOn: $isHidden) {
                         Label(
                             title: { Text("Hidden") },
                             icon: { Image(systemName: "eye") }
