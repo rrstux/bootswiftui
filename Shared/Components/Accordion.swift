@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Accordion<Sections: View>: View, Component {
+struct Accordion<Section: View>: View, Component {
     
     var componentTheme: Theme
     var isDismissable: Bool
@@ -16,11 +16,30 @@ struct Accordion<Sections: View>: View, Component {
     @Binding var isRendered: Bool
     @Binding var isHidden: Bool
     
-    @ViewBuilder var sections: Sections
+    @ViewBuilder var sections: () -> Section
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    init(componentTheme: Theme,
+         isDismissable: Bool,
+         isRendered: Binding<Bool>,
+         isHidden: Binding<Bool>,
+        @ViewBuilder sections: @escaping () -> Section) {
+        self.componentTheme = componentTheme
+        self.isDismissable = isDismissable
+        self._isRendered = isRendered
+        self._isHidden = isHidden
+        self.sections = sections
+    }
     
     var body: some View {
-        VStack {
-            sections
+        ZStack(alignment: .topLeading) {
+            Rectangle()
+                .boxMode(theme: .white)
+                .layoutPriority(-1)
+            VStack(spacing: 0) {
+                sections()
+            }
         }
     }
 }
@@ -41,20 +60,25 @@ struct AccordionSection<Header: View, Content: View>: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 0) {
             Button(action: {
-                withAnimation(.linear) {
+                withAnimation(.default.speed(2)) {
                     isCollapsed.toggle()
                 }
             }, label: {
                 HStack(alignment: .center) {
                     header
                     Spacer()
-                    Image(systemName: isCollapsed ? "chevron.up" : "chevron.down")
+                    Image(systemName: "chevron.up")
+                        .rotationEffect(isCollapsed ? .degrees(180) : .degrees(0))
                 }
             })
+            .padding()
+            Divider()
             if isCollapsed {
                 content
+                    .padding()
+                Divider()
             }
         }
     }
@@ -66,26 +90,24 @@ struct Accordion_Previews: PreviewProvider {
     @State static var secondSectionCollapsed = false
     
     static var previews: some View {
-        Accordion(componentTheme: .white,
-                  isDismissable: true,
-                  isRendered: .constant(true),
-                  isHidden: .constant(false),
-                  sections: {
-                    Group {
-                        AccordionSection(isCollapsed: $firstSectionCollapsed) {
-                            Text("Welcome to the jungle, Honey!")
-                        } content: {
-                            Text("Ok, this is pretty fun.")
-                        }
-                        AccordionSection(isCollapsed: $secondSectionCollapsed) {
-                            Text("Second Accordion Section")
-                        } content: {
-                            Text("Weird behavior?")
-                        }
-
-                    }
-                  }
-        )
-        .previewLayout(.sizeThatFits)
+        NavigationView {
+            Accordion(componentTheme: .white,
+                      isDismissable: true,
+                      isRendered: .constant(true),
+                      isHidden: .constant(false)) {
+                AccordionSection(isCollapsed: $firstSectionCollapsed) {
+                    Text("Welcome to the jungle, Honey!")
+                } content: {
+                    Text("Ok, this is pretty fun.")
+                }
+                AccordionSection(isCollapsed: $secondSectionCollapsed) {
+                    Text("Second Accordion Section")
+                } content: {
+                    Text("Weird behavior?")
+                }
+            }
+            .padding()
+            .previewLayout(.sizeThatFits)
+        }
     }
 }

@@ -33,6 +33,7 @@ struct AccordionPresentationScreen: View {
                     }
                   }
         )
+        .padding()
     }
 }
 
