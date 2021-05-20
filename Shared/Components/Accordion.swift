@@ -7,57 +7,55 @@
 
 import SwiftUI
 
-struct Accordion<Section: View>: View, Component {
+struct AccordionSectionData<Header: View, Content: View>: Identifiable {
+    
+    var id = UUID()
+    var isCollapsed = true
+    
+    var header: () -> Header
+    var content: () -> Content
+}
+
+struct Accordion<Header: View, Content: View>: View, Component {
     
     var componentTheme: Theme
     var isDismissable: Bool
     
     // MARK: Bindings
+    
+    @Binding var accordionSectionData: [AccordionSectionData<Header, Content>]
+    
     @Binding var isRendered: Bool
     @Binding var isHidden: Bool
-    
-    @ViewBuilder var sections: () -> Section
-    
-    @Environment(\.colorScheme) var colorScheme
-    
-    init(componentTheme: Theme,
-         isDismissable: Bool,
-         isRendered: Binding<Bool>,
-         isHidden: Binding<Bool>,
-        @ViewBuilder sections: @escaping () -> Section) {
-        self.componentTheme = componentTheme
-        self.isDismissable = isDismissable
-        self._isRendered = isRendered
-        self._isHidden = isHidden
-        self.sections = sections
-    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             Rectangle()
-                .boxMode(theme: .white)
+                .boxMode(theme: componentTheme)
                 .layoutPriority(-1)
             VStack(spacing: 0) {
-                sections()
+                ForEach(accordionSectionData.indices) { i in
+                    AccordionSection(componentTheme: componentTheme,
+                                     header: accordionSectionData[i].header,
+                                     content: accordionSectionData[i].content,
+                                     listPosition: ListPosition.position(in: accordionSectionData.indices, of: i),
+                                     isCollapsed: $accordionSectionData[i].isCollapsed)
+                }
             }
         }
     }
 }
 
-struct AccordionSection<Header: View, Content: View>: View {
+fileprivate struct AccordionSection<Header: View, Content: View>: View {
+
+    var componentTheme: Theme = .primary
     
-    let header: Header
-    let content: Content
+    let header: () -> Header
+    let content: () -> Content
+    
+    var listPosition: ListPosition = .unknown
     
     @Binding var isCollapsed: Bool
-    
-    init(isCollapsed: Binding<Bool>,
-         @ViewBuilder header: @escaping () -> Header,
-         @ViewBuilder content: @escaping () -> Content) {
-        self.header = header()
-        self.content = content()
-        self._isCollapsed = isCollapsed
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -67,17 +65,36 @@ struct AccordionSection<Header: View, Content: View>: View {
                 }
             }, label: {
                 HStack(alignment: .center) {
-                    header
+                    header()
+                        .font(.headline)
                     Spacer()
                     Image(systemName: "chevron.up")
                         .rotationEffect(isCollapsed ? .degrees(180) : .degrees(0))
+                        .foregroundColor(componentTheme.config.ternary)
                 }
             })
             .padding()
-            Divider()
+            .foregroundColor(componentTheme.config.ternary)
+            headerDividers()
             if isCollapsed {
-                content
+                content()
                     .padding()
+                if (listPosition != .last && listPosition != .uniqueElement) {
+                    Divider()
+                }
+            }
+        }
+    }
+    
+    func headerDividers() -> some View {
+        VStack {
+            if (listPosition == .uniqueElement && isCollapsed) {
+                Divider()
+            }
+            if (listPosition == .mid || listPosition == .first) {
+                Divider()
+            }
+            if (listPosition == .last && isCollapsed) {
                 Divider()
             }
         }
@@ -89,25 +106,31 @@ struct Accordion_Previews: PreviewProvider {
     @State static var firstSectionCollapsed = true
     @State static var secondSectionCollapsed = false
     
+    @State static var accordionSectionData = [
+        AccordionSectionData(isCollapsed: true,
+                             header: { Text("Home Sweet Home") },
+                             content: { Text("lol") }),
+        AccordionSectionData(isCollapsed: true,
+                             header: { Text("Home Sweet Home") },
+                             content: { Text("lol") })
+    ]
+    
     static var previews: some View {
         NavigationView {
-            Accordion(componentTheme: .white,
-                      isDismissable: true,
-                      isRendered: .constant(true),
-                      isHidden: .constant(false)) {
-                AccordionSection(isCollapsed: $firstSectionCollapsed) {
-                    Text("Welcome to the jungle, Honey!")
-                } content: {
-                    Text("Ok, this is pretty fun.")
-                }
-                AccordionSection(isCollapsed: $secondSectionCollapsed) {
-                    Text("Second Accordion Section")
-                } content: {
-                    Text("Weird behavior?")
-                }
+            VStack {
+                Button(action: {
+                    accordionSectionData[0].isCollapsed.toggle()
+                }, label: {
+                    Text("Button")
+                })
+                Accordion(componentTheme: .white,
+                          isDismissable: true,
+                          accordionSectionData: $accordionSectionData,
+                          isRendered: .constant(true),
+                          isHidden: .constant(false))
+                    .padding()
+                    .previewLayout(.sizeThatFits)
             }
-            .padding()
-            .previewLayout(.sizeThatFits)
         }
     }
 }

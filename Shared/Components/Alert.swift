@@ -103,8 +103,8 @@ struct Alert: View, Component {
 struct Alert_Previews: PreviewProvider {
     
     static var previews: some View {
-        Alert(alertTitle: AlertMock.RomanianDisaster.title,
-              alertDescription: AlertMock.RomanianDisaster.description,
+        Alert(alertTitle: MockData.Alert_RomanianDisaster.title,
+              alertDescription: MockData.Alert_RomanianDisaster.description,
               componentTheme: .danger,
               isDismissable: true,
               isRendered: .constant(true),

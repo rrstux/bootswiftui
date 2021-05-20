@@ -8,32 +8,30 @@
 import SwiftUI
 
 struct AccordionPresentationScreen: View {
+    @EnvironmentObject var appConfig: AppConfig
     
-    @State var firstSectionCollapsed = true
-    @State var secondSectionCollapsed = false
+    @State var accordionSectionData = MockData.Acordion_FAQ.list.map { mockData in
+        AccordionSectionData(isCollapsed: false, header: { Text(mockData.question) }, content: { Text(mockData.answer) })
+    }
     
     var body: some View {
-        Accordion(componentTheme: .white,
-                  isDismissable: true,
-                  isRendered: .constant(true),
-                  isHidden: .constant(false),
-                  sections: {
-                    Group {
-                        AccordionSection(isCollapsed: $firstSectionCollapsed) {
-                            Text("Welcome to the jungle, Honey!")
-                        } content: {
-                            Text("Ok, this is pretty fun.")
-                        }
-                        AccordionSection(isCollapsed: $secondSectionCollapsed) {
-                            Text("Second Accordion Section")
-                        } content: {
-                            Text("Weird behavior?")
-                        }
-
-                    }
-                  }
-        )
-        .padding()
+        VStack {
+            Button(action: {
+                withAnimation {
+                    
+                    accordionSectionData[0].isCollapsed = false
+                }
+            }, label: {
+                Text("Button")
+            })
+            Accordion(componentTheme: appConfig.theme,
+                      isDismissable: true,
+                      accordionSectionData: $accordionSectionData,
+                      isRendered: .constant(true),
+                      isHidden: .constant(false))
+                .padding()
+            ThemeSwitcher(selectedTheme: $appConfig.theme)
+        }
     }
 }
 
