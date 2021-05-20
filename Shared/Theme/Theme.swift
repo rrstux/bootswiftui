@@ -101,6 +101,15 @@ struct Dark: ThemeProtocol {
     var ternary: Color = .ternaryDarkGray
 }
 
+struct White: ThemeProtocol {
+    
+    var name: String = "White"
+    
+    var primary: Color = .primaryWhite
+    var secondary: Color = .secondaryWhite
+    var ternary: Color = .ternaryWhite
+}
+
 enum Theme: CaseIterable {
     case primary
     case secondary
@@ -109,6 +118,7 @@ enum Theme: CaseIterable {
     case warning
     case info
     case dark
+    case white
     
     var config: ThemeProtocol {
         switch self {
@@ -119,6 +129,7 @@ enum Theme: CaseIterable {
         case .warning: return Warning()
         case .info: return Info()
         case .dark: return Dark()
+        case .white: return White()
         }
     }
 }
