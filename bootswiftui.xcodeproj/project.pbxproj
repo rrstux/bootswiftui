@@ -17,6 +17,8 @@
 		460EF96F2656DB5600B5FEEF /* ListPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF96D2656DB5600B5FEEF /* ListPosition.swift */; };
 		4632CF3626578BD900663525 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632CF3526578BD900663525 /* Carousel.swift */; };
 		4632CF3726578BD900663525 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632CF3526578BD900663525 /* Carousel.swift */; };
+		46501B672657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46501B662657CAC30006D504 /* CarouselPresentationScreen.swift */; };
+		46501B682657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46501B662657CAC30006D504 /* CarouselPresentationScreen.swift */; };
 		46540C8F2651751E00DC4AA2 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C8E2651751E00DC4AA2 /* Tests_iOS.swift */; };
 		46540C9A2651751E00DC4AA2 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C992651751E00DC4AA2 /* Tests_macOS.swift */; };
 		46540C9C2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */; };
@@ -68,6 +70,7 @@
 		460EF96A2656A22A00B5FEEF /* AccordionPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionPresentationScreen.swift; sourceTree = "<group>"; };
 		460EF96D2656DB5600B5FEEF /* ListPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPosition.swift; sourceTree = "<group>"; };
 		4632CF3526578BD900663525 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		46501B662657CAC30006D504 /* CarouselPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPresentationScreen.swift; sourceTree = "<group>"; };
 		46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bootswiftuiApp.swift; sourceTree = "<group>"; };
 		46540C742651751D00DC4AA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46540C752651751E00DC4AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +133,7 @@
 			children = (
 				460EF92D2655A20200B5FEEF /* AlertPresentationScreen.swift */,
 				460EF96A2656A22A00B5FEEF /* AccordionPresentationScreen.swift */,
+				46501B662657CAC30006D504 /* CarouselPresentationScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -412,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46501B672657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */,
 				469595382657A39B00CCEBB9 /* View.swift in Sources */,
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
@@ -435,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46501B682657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */,
 				469595392657A39B00CCEBB9 /* View.swift in Sources */,
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,

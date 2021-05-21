@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CarouselData: Identifiable {
     
@@ -21,7 +22,7 @@ struct Carousel<Content>: View, Component where Content : View {
     
     var componentTheme: Theme
     
-    @State private var activeSlide: Int = 1
+    @Binding var activeSlide: Int
     
     @Binding var carouselData: [CarouselData]
     
@@ -31,6 +32,7 @@ struct Carousel<Content>: View, Component where Content : View {
     @Binding var isRendered: Bool
     @Binding var isHidden: Bool
     @Binding var isShowingIndicators: Bool
+    @Binding var isAutoScrolling: Bool
     
     // MARK: Safe Zone Calculator
     
@@ -56,37 +58,47 @@ struct Carousel<Content>: View, Component where Content : View {
         return activeSlide == carouselData.count-1
     }
     
+    let timer = Timer.publish(every: 3, on: .main, in: .default).autoconnect()
+    
     internal var isDismissable: Bool = false
     
     init(
         componentTheme: Theme,
+        activeSlide: Binding<Int>,
         carouselData: Binding<[CarouselData]>,
         isRendered: Binding<Bool>,
         isHidden: Binding<Bool>,
         isShowingIndicators: Binding<Bool>,
+        isAutoScrolling: Binding<Bool>,
         @ViewBuilder leftControlView: () -> Content?,
         @ViewBuilder rightControlView: () -> Content?) {
         self.componentTheme = componentTheme
+        self._activeSlide = activeSlide
         self._carouselData = carouselData
         self._isRendered = isRendered
         self._isHidden = isHidden
         self._isShowingIndicators = isShowingIndicators
+        self._isAutoScrolling = isAutoScrolling
         self.leftControlView = leftControlView()
         self.rightControlView = rightControlView()
     }
     
     init(
         componentTheme: Theme,
+        activeSlide: Binding<Int>,
         carouselData: Binding<[CarouselData]>,
-        isRendered: Binding<Bool>,
-        isHidden: Binding<Bool>,
-        isShowingIndicators: Binding<Bool>) where Content == AnyView {
+        isRendered: Binding<Bool> = .constant(true),
+        isHidden: Binding<Bool> = .constant(false),
+        isShowingIndicators: Binding<Bool> = .constant(true),
+        isAutoScrolling: Binding<Bool> = .constant(true)) where Content == AnyView {
         self.init(
             componentTheme: componentTheme,
+            activeSlide: activeSlide,
             carouselData: carouselData,
             isRendered: isRendered,
             isHidden: isHidden,
-            isShowingIndicators: isShowingIndicators) {
+            isShowingIndicators: isShowingIndicators,
+            isAutoScrolling: isAutoScrolling) {
             AnyView(
                 Image(systemName: "chevron.left")
                     .font(.title)
@@ -101,6 +113,7 @@ struct Carousel<Content>: View, Component where Content : View {
         }
     }
     
+    @State var dumpTest: String = ""
     var body: some View {
         GeometryReader { reader in
             ZStack {
@@ -123,6 +136,11 @@ struct Carousel<Content>: View, Component where Content : View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: isShowingIndicators ? .always : .never))
+        .onReceive(timer, perform: { t in
+            withAnimation {
+                increaseActiveSlide(shouldInfinityScroll: true)
+            }
+        })
     }
     
     fileprivate func carouselControls() -> some View {
@@ -162,9 +180,17 @@ struct Carousel<Content>: View, Component where Content : View {
         activeSlide -= 1
     }
     
-    fileprivate func increaseActiveSlide() {
-        if isLastSlide { return }
-        activeSlide += 1
+    fileprivate func increaseActiveSlide(shouldInfinityScroll: Bool = false) {
+        if !shouldInfinityScroll {
+            if isLastSlide { return }
+            activeSlide += 1
+        } else {
+            if isLastSlide {
+                activeSlide = 0
+            } else {
+                activeSlide += 1
+            }
+        }
     }
 }
 
@@ -172,6 +198,54 @@ struct Carousel_Previews: PreviewProvider {
     
     @State static var carouselData = [
         
+        CarouselData(
+            isContentConstrainedToSafeZone: true,
+            background: {
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .background(Image("Audi"))
+                    .eraseToAnyView()
+            },
+            content: {
+                ZStack {
+                    VStack {
+                        Spacer()
+                        Image(systemName: "cart.circle.fill")
+                            .font(.system(size: 92))
+                            .foregroundColor(.white)
+                        Text("Autoparts")
+                            .font(.system(size: 62, weight: .heavy, design: .default))
+                            .foregroundColor(.white)
+                            .padding(.top)
+                            .rotationEffect(.degrees(10))
+                        Text("Free auto parts weekend! Come over to our marketplace. Fill the form before!")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                        
+                        VStack {
+                            TextField("VIN", text: .constant("VWAAAZZ321312412"))
+                                .font(.system(size: 18, weight: .black, design: .rounded))
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .padding()
+                                .background(Color.primaryLightBlue.opacity(0.2))
+                                .clipShape(Capsule())
+                            Button(action: {}, label: {
+                                Text("Submit your VIN")
+                                    .foregroundColor(Color.white)
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.red.clipShape(Capsule()))
+                            })
+                        }
+                        Spacer()
+                    }
+                }
+                .eraseToAnyView()
+            }),
         CarouselData(
             isContentConstrainedToSafeZone: true,
             background: {
@@ -247,12 +321,16 @@ struct Carousel_Previews: PreviewProvider {
                 .eraseToAnyView()
             })
     ]
+    
+    @State static var activeSlide: Int = 0
+    
     static var previews: some View {
         Carousel(componentTheme: .warning,
+                 activeSlide: $activeSlide,
                  carouselData: $carouselData,
                  isRendered: .constant(true),
                  isHidden: .constant(false),
                  isShowingIndicators: .constant(true))
-            .frame(height: 800)
+            .frame(height: 500)
     }
 }
