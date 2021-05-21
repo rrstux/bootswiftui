@@ -20,10 +20,11 @@ struct CarouselPresentationScreen: View {
     
     @State var isRendered = true
     @State var isHidden = false
+    @State var isShowingIndicators = true
+    @State var isAutoScrolling = true
     
     @State var activeSlide: Int = 0
     @State var carouselData = [
-        
         CarouselData(
             isContentConstrainedToSafeZone: true,
             background: {
@@ -147,18 +148,17 @@ struct CarouselPresentationScreen: View {
                 .eraseToAnyView()
             })
     ]
+    
     var body: some View {
         VStack {
-            Carousel(componentTheme: .warning,
+            Carousel(componentTheme: appConfig.theme,
                      activeSlide: $activeSlide,
                      carouselData: $carouselData,
-                     isRendered: .constant(true),
-                     isHidden: .constant(false),
-                     isShowingIndicators: .constant(true),
-                     isAutoScrolling: .constant(true))
+                     isRendered: $isRendered,
+                     isHidden: $isHidden,
+                     isShowingIndicators: $isShowingIndicators,
+                     isAutoScrolling: $isAutoScrolling)
                 .frame(height: 500)
-                .padding()
-                .layoutPriority(1)
             
             Form {
                 Section(header: Text("Rendering")) {
@@ -176,43 +176,30 @@ struct CarouselPresentationScreen: View {
                     }
                 }
                 Section(header: Text("Control")) {
-                    Button(action: {
-                        withAnimation {
-                            collapseRandomSection()
-                        }
-                    }, label: {
+                    
+                    Toggle(isOn: $isAutoScrolling, label: {
                         Label(
-                            title: { Text("Collapse Randomly") },
+                            title: { Text("Is Autoscrolling") },
                             icon: { Image(systemName: "eye") }
                         )
                     })
                     Button(action: {
                         withAnimation {
-                            collapseRandomSection(closeOthers: false)
+                            activeSlide += 1
                         }
                     }, label: {
                         Label(
-                            title: { Text("Collapse Randomly keeping active") },
+                            title: { Text("Next Slide") },
                             icon: { Image(systemName: "eye") }
                         )
                     })
                     Button(action: {
                         withAnimation {
-                            collapse(all: false)
+                            activeSlide -= 1
                         }
                     }, label: {
                         Label(
-                            title: { Text("Close all") },
-                            icon: { Image(systemName: "eye") }
-                        )
-                    })
-                    Button(action: {
-                        withAnimation(.default) {
-                            collapse(all: true)
-                        }
-                    }, label: {
-                        Label(
-                            title: { Text("Open all") },
+                            title: { Text("Previous Slide") },
                             icon: { Image(systemName: "eye") }
                         )
                     })
@@ -232,7 +219,7 @@ struct CarouselPresentationScreen: View {
         .onAppear {
             selectedColorScheme = colorScheme
         }
-        .navigationTitle("Accordions")
+        .navigationTitle("Carousels")
     }
     
     func collapseRandomSection(closeOthers: Bool = true) {
@@ -252,9 +239,10 @@ struct CarouselPresentationScreen: View {
 }
 
 struct CarouselPresentationScreen_Previews: PreviewProvider {
+    
     static var previews: some View {
         NavigationView {
-            AccordionPresentationScreen()
+            CarouselPresentationScreen()
                 .environmentObject(AppConfig())
         }
     }

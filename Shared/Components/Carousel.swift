@@ -14,7 +14,7 @@ struct CarouselData: Identifiable {
     var isContentConstrainedToSafeZone = true
     
     var background: () -> AnyView
-    var midLayer: () -> AnyView = { Rectangle().opacity(0.4).eraseToAnyView() }
+    var midLayer: () -> AnyView = { Rectangle().foregroundColor(.black).opacity(0.4).eraseToAnyView() }
     var content: () -> AnyView
 }
 
@@ -115,32 +115,38 @@ struct Carousel<Content>: View, Component where Content : View {
     
     @State var dumpTest: String = ""
     var body: some View {
-        GeometryReader { reader in
-            ZStack {
-                TabView(selection: $activeSlide) {
-                    ForEach(carouselData.indices) { i in
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.clear)
-                                .overlay(carouselData[i].background())
-                            carouselData[i].midLayer()
-                            carouselData[i]
-                                .content()
-                                .padding(carouselData[i].isContentConstrainedToSafeZone ? safeZone : .init())
+        if isRendered {
+            GeometryReader { reader in
+                ZStack {
+                    TabView(selection: $activeSlide) {
+                        ForEach(carouselData.indices) { i in
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(.clear)
+                                    .overlay(carouselData[i].background())
+                                carouselData[i].midLayer()
+                                carouselData[i]
+                                    .content()
+                                    .padding(carouselData[i].isContentConstrainedToSafeZone ? safeZone : .init())
+                            }
+                            .clipped()
+                            .id(i)
                         }
-                        .clipped()
-                        .id(i)
                     }
+                    carouselControls()
                 }
-                carouselControls()
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: isShowingIndicators ? .always : .never))
+            .onReceive(timer, perform: { t in
+                if !isAutoScrolling { return }
+                withAnimation {
+                    increaseActiveSlide(shouldInfinityScroll: true)
+                }
+            })
+            .opacity(isHidden ? 0 : 1)
+        } else {
+            EmptyView()
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: isShowingIndicators ? .always : .never))
-        .onReceive(timer, perform: { t in
-            withAnimation {
-                increaseActiveSlide(shouldInfinityScroll: true)
-            }
-        })
     }
     
     fileprivate func carouselControls() -> some View {
