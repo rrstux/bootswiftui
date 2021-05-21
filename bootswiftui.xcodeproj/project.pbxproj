@@ -15,6 +15,8 @@
 		460EF96C2656A22A00B5FEEF /* AccordionPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF96A2656A22A00B5FEEF /* AccordionPresentationScreen.swift */; };
 		460EF96E2656DB5600B5FEEF /* ListPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF96D2656DB5600B5FEEF /* ListPosition.swift */; };
 		460EF96F2656DB5600B5FEEF /* ListPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EF96D2656DB5600B5FEEF /* ListPosition.swift */; };
+		4632CF3626578BD900663525 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632CF3526578BD900663525 /* Carousel.swift */; };
+		4632CF3726578BD900663525 /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4632CF3526578BD900663525 /* Carousel.swift */; };
 		46540C8F2651751E00DC4AA2 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C8E2651751E00DC4AA2 /* Tests_iOS.swift */; };
 		46540C9A2651751E00DC4AA2 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C992651751E00DC4AA2 /* Tests_macOS.swift */; };
 		46540C9C2651751E00DC4AA2 /* bootswiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */; };
@@ -63,6 +65,7 @@
 		460EF9672656964A00B5FEEF /* Accordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accordion.swift; sourceTree = "<group>"; };
 		460EF96A2656A22A00B5FEEF /* AccordionPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionPresentationScreen.swift; sourceTree = "<group>"; };
 		460EF96D2656DB5600B5FEEF /* ListPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPosition.swift; sourceTree = "<group>"; };
+		4632CF3526578BD900663525 /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		46540C732651751D00DC4AA2 /* bootswiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bootswiftuiApp.swift; sourceTree = "<group>"; };
 		46540C742651751D00DC4AA2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46540C752651751E00DC4AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -217,6 +220,7 @@
 				46C8FC6D265541180026C280 /* ThemeSwitcher.swift */,
 				46C8FC73265545DD0026C280 /* Alert.swift */,
 				460EF9672656964A00B5FEEF /* Accordion.swift */,
+				4632CF3526578BD900663525 /* Carousel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -399,6 +403,7 @@
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
+				4632CF3626578BD900663525 /* Carousel.swift in Sources */,
 				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				460EF92E2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */,
@@ -420,6 +425,7 @@
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,
 				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
+				4632CF3726578BD900663525 /* Carousel.swift in Sources */,
 				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				460EF92F2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC8026555C630026C280 /* BoxMode.swift in Sources */,
