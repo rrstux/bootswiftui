@@ -26,8 +26,8 @@ struct AccordionPresentationScreen: View {
             Accordion(componentTheme: appConfig.theme,
                       isDismissable: true,
                       accordionSectionData: $accordionSectionData,
-                      isRendered: $isRendered,
-                      isHidden: $isHidden)
+                      isRendered: isRendered,
+                      isHidden: isHidden)
                 .padding()
                 .layoutPriority(1)
             

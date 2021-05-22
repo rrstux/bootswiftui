@@ -25,8 +25,8 @@ struct Accordion<Header: View, Content: View>: View, Component {
     
     @Binding var accordionSectionData: [AccordionSectionData<Header, Content>]
     
-    @Binding var isRendered: Bool
-    @Binding var isHidden: Bool
+    var isRendered: Bool
+    var isHidden: Bool
     
     var body: some View {
         if !isRendered {
@@ -132,8 +132,8 @@ struct Accordion_Previews: PreviewProvider {
                 Accordion(componentTheme: .white,
                           isDismissable: true,
                           accordionSectionData: $accordionSectionData,
-                          isRendered: .constant(true),
-                          isHidden: .constant(false))
+                          isRendered: true,
+                          isHidden: false)
                     .padding()
                     .previewLayout(.sizeThatFits)
             }
