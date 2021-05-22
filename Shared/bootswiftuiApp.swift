@@ -13,9 +13,11 @@ struct bootswiftuiApp: App {
     @StateObject var appConfig: AppConfig = AppConfig()
     
     var body: some Scene {
+
         WindowGroup {
             ContentView()
                 .environmentObject(appConfig)
+                .overlay(appConfig.topViewUnwrapped)
         }
     }
 }
