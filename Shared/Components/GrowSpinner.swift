@@ -12,8 +12,6 @@ struct GrowSpinner: View, Component {
     var isLoading: Bool
     var componentTheme: Theme
     
-    // MARK: Bindables
-    
     var isRendered: Bool
     var isHidden: Bool
     

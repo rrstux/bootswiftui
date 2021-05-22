@@ -20,13 +20,12 @@ struct Accordion<Header: View, Content: View>: View, Component {
     
     var componentTheme: Theme
     var isDismissable: Bool
+    var isRendered: Bool
+    var isHidden: Bool
     
     // MARK: Bindings
     
     @Binding var accordionSectionData: [AccordionSectionData<Header, Content>]
-    
-    var isRendered: Bool
-    var isHidden: Bool
     
     var body: some View {
         if !isRendered {
