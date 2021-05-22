@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ModalPresentationScreen: View {
     
-    @State var isHidden: Bool = false
+    @State var isHidden: Bool = true
     
     var body: some View {
         VStack {

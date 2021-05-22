@@ -43,6 +43,34 @@ struct Modal<Content>: View, Component where Content : View {
     var body: some View {
         ZStack {
             background.edgesIgnoringSafeArea(.all)
+            VStack(alignment: .leading) {
+                Text("Modal Header")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                Divider()
+                
+                Text("Too tired to continue. See you tomorrow, dear Xcode. Anyway, you need a break 😁. #greatDay. Damn, this modal stuff was pretty messed up. ")
+                
+                HStack {
+                    Button(action: {}, label: {
+                        Text("Stay awake.")
+                            .font(.subheadline)
+                            .bootswiftuiButton(theme: .danger, type: .outline)
+                    })
+                    Spacer()
+                    Button(action: {}, label: {
+                        Text("Go to sleep, Xcode.")
+                            .font(.subheadline)
+                            .bootswiftuiButton(theme: .success, type: .regular)
+                    })
+                }
+                .padding(.vertical)
+            }
+            .padding()
+            .background(Theme.white.config.background)
+            .foregroundColor(componentTheme.config.text)
+            .boxMode()
+            .padding()
         }
         .opacity(isHidden ? 0 : 1)
     }
