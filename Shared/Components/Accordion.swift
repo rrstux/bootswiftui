@@ -130,9 +130,9 @@ struct Accordion_Previews: PreviewProvider {
                 })
                 Accordion(componentTheme: .white,
                           isDismissable: true,
-                          accordionSectionData: $accordionSectionData,
                           isRendered: true,
-                          isHidden: false)
+                          isHidden: false,
+                          accordionSectionData: $accordionSectionData)
                     .padding()
                     .previewLayout(.sizeThatFits)
             }

@@ -25,9 +25,9 @@ struct AccordionPresentationScreen: View {
         VStack {
             Accordion(componentTheme: appConfig.theme,
                       isDismissable: true,
-                      accordionSectionData: $accordionSectionData,
                       isRendered: isRendered,
-                      isHidden: isHidden)
+                      isHidden: isHidden,
+                      accordionSectionData: $accordionSectionData)
                 .padding()
                 .layoutPriority(1)
             
