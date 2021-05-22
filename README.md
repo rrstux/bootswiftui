@@ -12,7 +12,7 @@ Accordion | ✅
 Alert | ✅
 Badge | ❌
 Breadcrumb | ❌
-Buttons | ❌
+Buttons | ✅
 Card | ❌
 Carousel | ✅
 Collapse | ❌
@@ -34,3 +34,4 @@ Accordion | ![Alt text](Examples/accordion1.png "Example 1") | ![Alt text](Examp
 Alert | ![Alt text](Examples/alert1.png "Example 1") | ![Alt text](Examples/alert2.png "Example 2") | ![Alt text](Examples/alert3.png "Example 3") | ![Alt text](Examples/alert4.png "Example 4") | ![Alt text]
 Carousel | ![Alt text](Examples/carousel1.png "Example 1") | ![Alt text](Examples/carousel2.png "Example 2") | ![Alt text](Examples/carousel3.png "Example 3") | ![Alt text](Examples/carousel4.png "Example 4")
 Spinners | ![Alt text](Examples/spinners1.png "Example 1") | ![Alt text](Examples/spinners2.png "Example 2") | |
+Buttons | ![Alt text](Examples/buttons1.png "Example 1") | ![Alt text](Examples/buttons2.png "Example 2") | |
