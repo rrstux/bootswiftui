@@ -153,11 +153,11 @@ struct CarouselPresentationScreen: View {
         VStack {
             Carousel(componentTheme: appConfig.theme,
                      activeSlide: $activeSlide,
-                     carouselData: $carouselData,
-                     isRendered: $isRendered,
-                     isHidden: $isHidden,
-                     isShowingIndicators: $isShowingIndicators,
-                     isAutoScrolling: $isAutoScrolling)
+                     carouselData: carouselData,
+                     isRendered: isRendered,
+                     isHidden: isHidden,
+                     isShowingIndicators: isShowingIndicators,
+                     isAutoScrolling: isAutoScrolling)
                 .frame(height: 500)
             
             Form {

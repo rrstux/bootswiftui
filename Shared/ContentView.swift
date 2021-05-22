@@ -17,6 +17,7 @@ struct ContentView: View {
                 NavigationLink("Accordions", destination: AccordionPresentationScreen())
                 NavigationLink("Alerts", destination: AlertPresentationScreen())
                 NavigationLink("Carousels", destination: CarouselPresentationScreen())
+                NavigationLink("Spinners", destination: SpinnerPresentationScreen())
             }
             .navigationTitle("bootswiftui")
         }

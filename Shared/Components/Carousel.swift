@@ -24,15 +24,15 @@ struct Carousel<Content>: View, Component where Content : View {
     
     @Binding var activeSlide: Int
     
-    @Binding var carouselData: [CarouselData]
+    var carouselData: [CarouselData]
     
     @ViewBuilder let leftControlView: Content?
     @ViewBuilder let rightControlView: Content?
     
-    @Binding var isRendered: Bool
-    @Binding var isHidden: Bool
-    @Binding var isShowingIndicators: Bool
-    @Binding var isAutoScrolling: Bool
+    var isRendered: Bool
+    var isHidden: Bool
+    var isShowingIndicators: Bool
+    var isAutoScrolling: Bool
     
     // MARK: Safe Zone Calculator
     
@@ -65,20 +65,20 @@ struct Carousel<Content>: View, Component where Content : View {
     init(
         componentTheme: Theme,
         activeSlide: Binding<Int>,
-        carouselData: Binding<[CarouselData]>,
-        isRendered: Binding<Bool>,
-        isHidden: Binding<Bool>,
-        isShowingIndicators: Binding<Bool>,
-        isAutoScrolling: Binding<Bool>,
+        carouselData: [CarouselData],
+        isRendered: Bool,
+        isHidden: Bool,
+        isShowingIndicators: Bool,
+        isAutoScrolling: Bool,
         @ViewBuilder leftControlView: () -> Content?,
         @ViewBuilder rightControlView: () -> Content?) {
         self.componentTheme = componentTheme
         self._activeSlide = activeSlide
-        self._carouselData = carouselData
-        self._isRendered = isRendered
-        self._isHidden = isHidden
-        self._isShowingIndicators = isShowingIndicators
-        self._isAutoScrolling = isAutoScrolling
+        self.carouselData = carouselData
+        self.isRendered = isRendered
+        self.isHidden = isHidden
+        self.isShowingIndicators = isShowingIndicators
+        self.isAutoScrolling = isAutoScrolling
         self.leftControlView = leftControlView()
         self.rightControlView = rightControlView()
     }
@@ -86,11 +86,11 @@ struct Carousel<Content>: View, Component where Content : View {
     init(
         componentTheme: Theme,
         activeSlide: Binding<Int>,
-        carouselData: Binding<[CarouselData]>,
-        isRendered: Binding<Bool> = .constant(true),
-        isHidden: Binding<Bool> = .constant(false),
-        isShowingIndicators: Binding<Bool> = .constant(true),
-        isAutoScrolling: Binding<Bool> = .constant(true)) where Content == AnyView {
+        carouselData: [CarouselData],
+        isRendered: Bool = true,
+        isHidden: Bool = false,
+        isShowingIndicators: Bool = true,
+        isAutoScrolling: Bool = true) where Content == AnyView {
         self.init(
             componentTheme: componentTheme,
             activeSlide: activeSlide,
@@ -333,10 +333,10 @@ struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
         Carousel(componentTheme: .warning,
                  activeSlide: $activeSlide,
-                 carouselData: $carouselData,
-                 isRendered: .constant(true),
-                 isHidden: .constant(false),
-                 isShowingIndicators: .constant(true))
+                 carouselData: carouselData,
+                 isRendered: true,
+                 isHidden: false,
+                 isShowingIndicators: true)
             .frame(height: 500)
     }
 }
