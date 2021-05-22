@@ -11,30 +11,35 @@ struct ModalModifier<ModalContent>: ViewModifier where ModalContent : View {
     
     @EnvironmentObject var appConfig: AppConfig
     
-    @Binding var isPresented: Bool
+    @Binding var isHidden: Bool
     var modalContent: ModalContent
     
     @State private var screenSize: CGSize = .zero
     
-    init(isPresented: Binding<Bool> = .constant(false),
+    init(isHidden: Binding<Bool> = .constant(false),
          @ViewBuilder modalContent: () -> ModalContent) {
-        self._isPresented = isPresented
+        self._isHidden = isHidden
         self.modalContent = modalContent()
     }
     
     func body(content: Content) -> some View {
         content
-            .onChange(of: isPresented, perform: { value in
-                if isPresented {
-                    appConfig.topView = AnyView(Modal(isHidden: $isPresented))
-                }
-            })
+            .onAppear(perform: topViewModalConfig)
+            .onChange(of: isHidden, perform: { _ in topViewModalConfig() })
+    }
+    
+    func topViewModalConfig() {
+        if !isHidden {
+            appConfig.topView = AnyView(Modal(isHidden: $isHidden))
+        } else {
+            appConfig.topView = AnyView(EmptyView())
+        }
     }
 }
 
 extension View {
     
-    func modal<Content: View>(isPresented: Binding<Bool>, content: () -> Content) -> some View {
-        self.modifier(ModalModifier(isPresented: isPresented, modalContent: content))
+    func modal<Content: View>(isHidden: Binding<Bool>, content: () -> Content) -> some View {
+        self.modifier(ModalModifier(isHidden: isHidden, modalContent: content))
     }
 }

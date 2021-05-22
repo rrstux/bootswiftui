@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ModalPresentationScreen: View {
     
-    @State var isModalShown: Bool = false
+    @State var isHidden: Bool = false
     
     var body: some View {
         VStack {
             Button(action: {
-                isModalShown.toggle()
+                isHidden.toggle()
             }, label: {
                 Text("Button")
             })
         }
-        .modal(isPresented: $isModalShown) {
+        .modal(isHidden: $isHidden) {
             VStack {
                 Text("lOL")
             }
