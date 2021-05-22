@@ -11,34 +11,84 @@ struct SpinnerPresentationScreen: View {
     
     @EnvironmentObject var appConfig: AppConfig
     
-    @State var isLoading: Bool = false
-    @State var isRendered: Bool = false
-    @State var isHidden: Bool = false
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
+    @State var selectedColorScheme: ColorScheme = .dark
+    
+    @State var isLoading = false
+    @State var isRendered = true
+    @State var isHidden = false
+    @State var isAutoScrolling = true
     
     let timer = Timer.publish(every: 4, on: .main, in: .default).autoconnect()
     
     var body: some View {
         VStack {
-            GrowSpinner(isLoading: isLoading,
-                        componentTheme: appConfig.theme,
-                        isRendered: isRendered,
-                        isHidden: isHidden,
-                        isDismissable: false)
-            BorderSpinner(isRendered: isRendered,
-                          isHidden: isHidden,
-                          isDismissable: false,
-                          componentTheme: appConfig.theme,
-                          isLoading: isLoading)
-            Button(action: {
-                isLoading.toggle()
-            }, label: {
-                Text("Button")
-            })
-            ThemeSwitcher(selectedTheme: $appConfig.theme)
+            VStack {
+                HStack {
+                    ForEach(Theme.allCases.indices) { i in
+                        GrowSpinner(isLoading: isLoading,
+                                    componentTheme: Theme.allCases[i],
+                                    isRendered: isRendered,
+                                    isHidden: isHidden,
+                                    isDismissable: false)
+                            .frame(height: 50)
+                            .padding(5)
+                    }
+                }
+                .padding()
+                HStack {
+                    ForEach(Theme.allCases.indices) { i in
+                        BorderSpinner(isRendered: isRendered,
+                                      isHidden: isHidden,
+                                      isDismissable: false,
+                                      componentTheme: Theme.allCases[i],
+                                      isLoading: isLoading)
+                            .frame(height: 50)
+                            .padding(5)
+                    }
+                }
+                .padding()
+            }
+            Form {
+                Section(header: Text("Rendering")) {
+                    Toggle(isOn: $isRendered) {
+                        Label(
+                            title: { Text("Rendered") },
+                            icon: { Image(systemName: "eye") }
+                        )
+                    }
+                    Toggle(isOn: $isHidden) {
+                        Label(
+                            title: { Text("Hidden") },
+                            icon: { Image(systemName: "eye") }
+                        )
+                    }
+                }
+                Section(header: Text("Control")) {
+                    Toggle(isOn: $isLoading) {
+                        Label(
+                            title: { Text("Loading") },
+                            icon: { Image(systemName: "eye") }
+                        )
+                    }
+                }
+                
+                Section(header: Text("Themes")) {
+                    Picker(selection: $selectedColorScheme, label: Text("Picker")) {
+                        Text("Dark Mode").tag(ColorScheme.dark)
+                        Text("Light Mode").tag(ColorScheme.light)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                }
+            }
         }
         .onReceive(timer, perform: { _ in
             appConfig.theme = Theme.allCases.randomElement()!
         })
+        .preferredColorScheme(selectedColorScheme)
+        .onAppear {
+            selectedColorScheme = colorScheme
+        }
         .navigationTitle("Spinners")
     }
 }
@@ -47,6 +97,7 @@ struct SpinnerPresentationScreen_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             SpinnerPresentationScreen()
+                .environmentObject(AppConfig())
         }
     }
 }

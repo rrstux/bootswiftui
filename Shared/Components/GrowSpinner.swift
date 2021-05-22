@@ -20,13 +20,18 @@ struct GrowSpinner: View, Component {
     internal var isDismissable: Bool
     
     var body: some View {
-        return VStack {
-            Circle()
-                .scaleEffect(isLoading ? 1 : 0)
-                .opacity(isLoading ? 0: 1)
+        if isRendered {
+            VStack {
+                Circle()
+                    .scaleEffect(isLoading ? 1 : 0)
+                    .opacity(isLoading ? 0: 1)
+            }
+            .animation(isLoading ? .linear.speed(0.5).repeatForever(autoreverses: false) : .default)
+            .foregroundColor(componentTheme.config.ternary)
+            .opacity(isHidden ? 0 : 1)
+        } else {
+            EmptyView()
         }
-        .animation(isLoading ? .linear.speed(0.5).repeatForever(autoreverses: false) : .default)
-        .foregroundColor(componentTheme.config.ternary)
     }
 }
 

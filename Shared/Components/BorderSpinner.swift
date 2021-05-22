@@ -17,22 +17,25 @@ struct BorderSpinner: View, Component {
     var isLoading: Bool
     
     var body: some View {
-        GeometryReader { reader in
-            Path { path in
-                path.addArc(center: .init(x: reader.size.width/2, y: reader.size.height/2),
-                            radius: reader.size.width/2,
-                            startAngle: .degrees(90),
-                            endAngle: .degrees(180),
-                            clockwise: true)
-            }
-            .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .square))
-            .foregroundColor(componentTheme.config.ternary)
-            .rotationEffect(isLoading ? .degrees(360) : .degrees(0))
-            .animation(isLoading ? .linear.speed(0.5).repeatForever(autoreverses: false) : .default)
+        if isRendered {
+            GeometryReader { reader in
+                Path { path in
+                    path.addArc(center: .init(x: reader.size.width/2, y: reader.size.height/2),
+                                radius: reader.size.width/2,
+                                startAngle: .degrees(90),
+                                endAngle: .degrees(180),
+                                clockwise: true)
+                }
+                .stroke(style: StrokeStyle(lineWidth: 5, lineCap: .square))
+                .foregroundColor(componentTheme.config.ternary)
+                .rotationEffect(isLoading ? .degrees(360) : .degrees(0))
+                .animation(isLoading ? .linear.speed(0.5).repeatForever(autoreverses: false) : .default)
 
+            }
+            .opacity(isHidden ? 0 : 1)
+        } else {
+            EmptyView()
         }
-        .frame(width: 100, height: 100)
-        .border(Color.black)
     }
 }
 
