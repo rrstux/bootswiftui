@@ -19,16 +19,18 @@ struct ModalPresentationScreen: View {
                 Text("Button")
             })
         }
-        .modal(isHidden: $isHidden) {
-            VStack {
-                Text("lOL")
-            }
-        }
+        .modal(isHidden: $isHidden, content: Text("Lol").eraseToAnyView(), controls: HStack {
+            Button(action: {}, label: {
+                Text("Button")
+                    .bootswiftuiButton(theme: .danger, type: .regular)
+            })
+        }.eraseToAnyView())
     }
 }
 
 struct ModalPresentationScreen_Previews: PreviewProvider {
     static var previews: some View {
         ModalPresentationScreen()
+            .environmentObject(AppConfig())
     }
 }

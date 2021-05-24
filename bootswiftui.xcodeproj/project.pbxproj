@@ -33,12 +33,6 @@
 		4657D6A026595F43000D4F3B /* BootswiftuiButtonRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D69E26595F43000D4F3B /* BootswiftuiButtonRegular.swift */; };
 		4657D6A226596002000D4F3B /* ButtonPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A126596002000D4F3B /* ButtonPresentationScreen.swift */; };
 		4657D6A326596002000D4F3B /* ButtonPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A126596002000D4F3B /* ButtonPresentationScreen.swift */; };
-		4657D6A526598E70000D4F3B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A426598E70000D4F3B /* Modal.swift */; };
-		4657D6A626598E70000D4F3B /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A426598E70000D4F3B /* Modal.swift */; };
-		4657D6A826599307000D4F3B /* ModalPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A726599307000D4F3B /* ModalPresentationView.swift */; };
-		4657D6A926599307000D4F3B /* ModalPresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6A726599307000D4F3B /* ModalPresentationView.swift */; };
-		4657D6AB26599522000D4F3B /* ModalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6AA26599522000D4F3B /* ModalModifier.swift */; };
-		4657D6AC26599522000D4F3B /* ModalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6AA26599522000D4F3B /* ModalModifier.swift */; };
 		4657D6AE2659A572000D4F3B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6AD2659A572000D4F3B /* Binding.swift */; };
 		4657D6AF2659A572000D4F3B /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4657D6AD2659A572000D4F3B /* Binding.swift */; };
 		468DBCC526594149008D7634 /* GrowSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468DBCC426594149008D7634 /* GrowSpinner.swift */; };
@@ -106,9 +100,6 @@
 		46540CB1265175FF00DC4AA2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4657D69E26595F43000D4F3B /* BootswiftuiButtonRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootswiftuiButtonRegular.swift; sourceTree = "<group>"; };
 		4657D6A126596002000D4F3B /* ButtonPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPresentationScreen.swift; sourceTree = "<group>"; };
-		4657D6A426598E70000D4F3B /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
-		4657D6A726599307000D4F3B /* ModalPresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationView.swift; sourceTree = "<group>"; };
-		4657D6AA26599522000D4F3B /* ModalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModifier.swift; sourceTree = "<group>"; };
 		4657D6AD2659A572000D4F3B /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		468DBCC426594149008D7634 /* GrowSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowSpinner.swift; sourceTree = "<group>"; };
 		468DBCC7265943A0008D7634 /* SpinnerPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerPresentationScreen.swift; sourceTree = "<group>"; };
@@ -163,7 +154,6 @@
 				46501B662657CAC30006D504 /* CarouselPresentationScreen.swift */,
 				468DBCC7265943A0008D7634 /* SpinnerPresentationScreen.swift */,
 				4657D6A126596002000D4F3B /* ButtonPresentationScreen.swift */,
-				4657D6A726599307000D4F3B /* ModalPresentationView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -269,7 +259,6 @@
 				4632CF3526578BD900663525 /* Carousel.swift */,
 				468DBCC426594149008D7634 /* GrowSpinner.swift */,
 				468DBCCA26595233008D7634 /* BorderSpinner.swift */,
-				4657D6A426598E70000D4F3B /* Modal.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -290,7 +279,6 @@
 			children = (
 				46C8FC7E26555C630026C280 /* BoxMode.swift */,
 				4657D69E26595F43000D4F3B /* BootswiftuiButtonRegular.swift */,
-				4657D6AA26599522000D4F3B /* ModalModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -457,14 +445,11 @@
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				468DBCCB26595233008D7634 /* BorderSpinner.swift in Sources */,
 				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
-				4657D6A526598E70000D4F3B /* Modal.swift in Sources */,
 				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
 				4657D6AE2659A572000D4F3B /* Binding.swift in Sources */,
 				4632CF3626578BD900663525 /* Carousel.swift in Sources */,
 				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				460EF92E2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
-				4657D6A826599307000D4F3B /* ModalPresentationView.swift in Sources */,
-				4657D6AB26599522000D4F3B /* ModalModifier.swift in Sources */,
 				46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */,
 				460EF96E2656DB5600B5FEEF /* ListPosition.swift in Sources */,
 				460EF96B2656A22A00B5FEEF /* AccordionPresentationScreen.swift in Sources */,
@@ -490,14 +475,11 @@
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				468DBCCC26595233008D7634 /* BorderSpinner.swift in Sources */,
 				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,
-				4657D6A626598E70000D4F3B /* Modal.swift in Sources */,
 				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
 				4657D6AF2659A572000D4F3B /* Binding.swift in Sources */,
 				4632CF3726578BD900663525 /* Carousel.swift in Sources */,
 				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				460EF92F2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
-				4657D6A926599307000D4F3B /* ModalPresentationView.swift in Sources */,
-				4657D6AC26599522000D4F3B /* ModalModifier.swift in Sources */,
 				46C8FC8026555C630026C280 /* BoxMode.swift in Sources */,
 				460EF96F2656DB5600B5FEEF /* ListPosition.swift in Sources */,
 				460EF96C2656A22A00B5FEEF /* AccordionPresentationScreen.swift in Sources */,
