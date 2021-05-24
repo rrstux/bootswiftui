@@ -18,7 +18,7 @@ Carousel | ✅
 Collapse | ❌
 Dropdowns | ❌
 List Group | ❌
-Modal | ❌
+Modal | ✅
 Navs & Tabs | ❌
 Navbar | ❌
 Offcanvas | ❌
@@ -35,3 +35,4 @@ Alert | ![Alt text](Examples/alert1.png "Example 1") | ![Alt text](Examples/aler
 Carousel | ![Alt text](Examples/carousel1.png "Example 1") | ![Alt text](Examples/carousel2.png "Example 2") | ![Alt text](Examples/carousel3.png "Example 3") | ![Alt text](Examples/carousel4.png "Example 4")
 Spinners | ![Alt text](Examples/spinners1.png "Example 1") | ![Alt text](Examples/spinners2.png "Example 2") | |
 Buttons | ![Alt text](Examples/buttons1.png "Example 1") | ![Alt text](Examples/buttons2.png "Example 2") | |
+Modals | ![Alt text](Examples/modals1.png "Example 1") | ![Alt text](Examples/modals2.png "Example 2") | |
