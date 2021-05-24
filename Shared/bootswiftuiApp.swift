@@ -17,7 +17,6 @@ struct bootswiftuiApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(appConfig)
-                .overlay(appConfig.topViewUnwrapped)
         }
     }
 }
