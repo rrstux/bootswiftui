@@ -13,8 +13,8 @@ struct bootswiftuiApp: App {
     @StateObject var appConfig: AppConfig = AppConfig()
     
     var body: some Scene {
-
-        WindowGroup {
+        
+        WindowGroup {            
             ContentView()
                 .environmentObject(appConfig)
         }
