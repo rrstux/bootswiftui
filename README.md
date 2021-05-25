@@ -10,7 +10,7 @@ Component | Support
 --- | --- |
 Accordion | ✅  
 Alert | ✅
-Badge | ❌
+Badge | ✅
 Breadcrumb | ❌
 Buttons | ✅
 Card | ❌
@@ -36,3 +36,4 @@ Carousel | ![Alt text](Examples/carousel1.png "Example 1") | ![Alt text](Example
 Spinners | ![Alt text](Examples/spinners1.png "Example 1") | ![Alt text](Examples/spinners2.png "Example 2") | |
 Buttons | ![Alt text](Examples/buttons1.png "Example 1") | ![Alt text](Examples/buttons2.png "Example 2") | |
 Modals | ![Alt text](Examples/modals1.png "Example 1") | ![Alt text](Examples/modals2.png "Example 2") | |
+Badges | ![Alt text](Examples/badge1.png "Example 1") | ![Alt text](Examples/badge2.png "Example 2") | |
