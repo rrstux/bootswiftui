@@ -53,6 +53,8 @@
 		469772DA265D492E004F4974 /* BadgeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D8265D492E004F4974 /* BadgeModifier.swift */; };
 		469772DC265D4993004F4974 /* BadgePresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DB265D4993004F4974 /* BadgePresentationScreen.swift */; };
 		469772DD265D4993004F4974 /* BadgePresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DB265D4993004F4974 /* BadgePresentationScreen.swift */; };
+		469772DF265D532A004F4974 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DE265D532A004F4974 /* Breadcrumb.swift */; };
+		469772E0265D532A004F4974 /* Breadcrumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DE265D532A004F4974 /* Breadcrumb.swift */; };
 		46C8FC65265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
 		46C8FC66265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
 		46C8FC6926553E810026C280 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6826553E810026C280 /* AppConfig.swift */; };
@@ -120,6 +122,7 @@
 		469772D5265C1F88004F4974 /* ModalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModifier.swift; sourceTree = "<group>"; };
 		469772D8265D492E004F4974 /* BadgeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeModifier.swift; sourceTree = "<group>"; };
 		469772DB265D4993004F4974 /* BadgePresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePresentationScreen.swift; sourceTree = "<group>"; };
+		469772DE265D532A004F4974 /* Breadcrumb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breadcrumb.swift; sourceTree = "<group>"; };
 		46C8FC64265538B50026C280 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		46C8FC6826553E810026C280 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		46C8FC6D265541180026C280 /* ThemeSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitcher.swift; sourceTree = "<group>"; };
@@ -277,6 +280,7 @@
 				468DBCC426594149008D7634 /* GrowSpinner.swift */,
 				468DBCCA26595233008D7634 /* BorderSpinner.swift */,
 				469772CF265C1911004F4974 /* Modal.swift */,
+				469772DE265D532A004F4974 /* Breadcrumb.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -463,6 +467,7 @@
 				469772D6265C1F88004F4974 /* ModalModifier.swift in Sources */,
 				46501B672657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */,
 				469595382657A39B00CCEBB9 /* View.swift in Sources */,
+				469772DF265D532A004F4974 /* Breadcrumb.swift in Sources */,
 				46540C9E2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				468DBCCB26595233008D7634 /* BorderSpinner.swift in Sources */,
 				46C8FC7B26554BC60026C280 /* Component.swift in Sources */,
@@ -498,6 +503,7 @@
 				469772D7265C1F88004F4974 /* ModalModifier.swift in Sources */,
 				46501B682657CAC30006D504 /* CarouselPresentationScreen.swift in Sources */,
 				469595392657A39B00CCEBB9 /* View.swift in Sources */,
+				469772E0265D532A004F4974 /* Breadcrumb.swift in Sources */,
 				46540C9F2651751E00DC4AA2 /* ContentView.swift in Sources */,
 				468DBCCC26595233008D7634 /* BorderSpinner.swift in Sources */,
 				46C8FC7C26554BC60026C280 /* Component.swift in Sources */,
