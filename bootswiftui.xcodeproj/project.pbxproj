@@ -49,6 +49,10 @@
 		469772D4265C1BA6004F4974 /* ModalPresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D2265C1BA6004F4974 /* ModalPresentationScreen.swift */; };
 		469772D6265C1F88004F4974 /* ModalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D5265C1F88004F4974 /* ModalModifier.swift */; };
 		469772D7265C1F88004F4974 /* ModalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D5265C1F88004F4974 /* ModalModifier.swift */; };
+		469772D9265D492E004F4974 /* BadgeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D8265D492E004F4974 /* BadgeModifier.swift */; };
+		469772DA265D492E004F4974 /* BadgeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772D8265D492E004F4974 /* BadgeModifier.swift */; };
+		469772DC265D4993004F4974 /* BadgePresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DB265D4993004F4974 /* BadgePresentationScreen.swift */; };
+		469772DD265D4993004F4974 /* BadgePresentationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469772DB265D4993004F4974 /* BadgePresentationScreen.swift */; };
 		46C8FC65265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
 		46C8FC66265538B50026C280 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC64265538B50026C280 /* Theme.swift */; };
 		46C8FC6926553E810026C280 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C8FC6826553E810026C280 /* AppConfig.swift */; };
@@ -114,6 +118,8 @@
 		469772CF265C1911004F4974 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		469772D2265C1BA6004F4974 /* ModalPresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentationScreen.swift; sourceTree = "<group>"; };
 		469772D5265C1F88004F4974 /* ModalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalModifier.swift; sourceTree = "<group>"; };
+		469772D8265D492E004F4974 /* BadgeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeModifier.swift; sourceTree = "<group>"; };
+		469772DB265D4993004F4974 /* BadgePresentationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgePresentationScreen.swift; sourceTree = "<group>"; };
 		46C8FC64265538B50026C280 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		46C8FC6826553E810026C280 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		46C8FC6D265541180026C280 /* ThemeSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSwitcher.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 				468DBCC7265943A0008D7634 /* SpinnerPresentationScreen.swift */,
 				4657D6A126596002000D4F3B /* ButtonPresentationScreen.swift */,
 				469772D2265C1BA6004F4974 /* ModalPresentationScreen.swift */,
+				469772DB265D4993004F4974 /* BadgePresentationScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 				46C8FC7E26555C630026C280 /* BoxMode.swift */,
 				4657D69E26595F43000D4F3B /* BootswiftuiButtonRegular.swift */,
 				469772D5265C1F88004F4974 /* ModalModifier.swift */,
+				469772D8265D492E004F4974 /* BadgeModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -461,11 +469,13 @@
 				46C8FC6926553E810026C280 /* AppConfig.swift in Sources */,
 				4657D6AE2659A572000D4F3B /* Binding.swift in Sources */,
 				4632CF3626578BD900663525 /* Carousel.swift in Sources */,
+				469772D9265D492E004F4974 /* BadgeModifier.swift in Sources */,
 				46C8FC6E265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				469772D3265C1BA6004F4974 /* ModalPresentationScreen.swift in Sources */,
 				460EF92E2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC7F26555C630026C280 /* BoxMode.swift in Sources */,
 				460EF96E2656DB5600B5FEEF /* ListPosition.swift in Sources */,
+				469772DC265D4993004F4974 /* BadgePresentationScreen.swift in Sources */,
 				460EF96B2656A22A00B5FEEF /* AccordionPresentationScreen.swift in Sources */,
 				46C8FC65265538B50026C280 /* Theme.swift in Sources */,
 				4657D6A226596002000D4F3B /* ButtonPresentationScreen.swift in Sources */,
@@ -494,11 +504,13 @@
 				46C8FC6A26553E810026C280 /* AppConfig.swift in Sources */,
 				4657D6AF2659A572000D4F3B /* Binding.swift in Sources */,
 				4632CF3726578BD900663525 /* Carousel.swift in Sources */,
+				469772DA265D492E004F4974 /* BadgeModifier.swift in Sources */,
 				46C8FC6F265541180026C280 /* ThemeSwitcher.swift in Sources */,
 				469772D4265C1BA6004F4974 /* ModalPresentationScreen.swift in Sources */,
 				460EF92F2655A20200B5FEEF /* AlertPresentationScreen.swift in Sources */,
 				46C8FC8026555C630026C280 /* BoxMode.swift in Sources */,
 				460EF96F2656DB5600B5FEEF /* ListPosition.swift in Sources */,
+				469772DD265D4993004F4974 /* BadgePresentationScreen.swift in Sources */,
 				460EF96C2656A22A00B5FEEF /* AccordionPresentationScreen.swift in Sources */,
 				46C8FC66265538B50026C280 /* Theme.swift in Sources */,
 				4657D6A326596002000D4F3B /* ButtonPresentationScreen.swift in Sources */,

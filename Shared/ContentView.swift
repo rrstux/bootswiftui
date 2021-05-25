@@ -20,6 +20,7 @@ struct ContentView: View {
                 NavigationLink("Spinners", destination: SpinnerPresentationScreen())
                 NavigationLink("Buttons", destination: ButtonPresentationScreen())
                 NavigationLink("Modals", destination: ModalPresentationScreen())
+                NavigationLink("Badges", destination: BadgePresentationScreen())
             }
             .navigationTitle("bootswiftui")
         }
