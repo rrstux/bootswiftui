@@ -15,9 +15,7 @@ Breadcrumb | ❌
 Buttons | ✅
 Card | ❌
 Carousel | ✅
-Collapse | ❌
 Dropdowns | ❌
-List Group | ❌
 Modal | ✅
 Navs & Tabs | ❌
 Navbar | ❌
